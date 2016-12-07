@@ -37,10 +37,12 @@ export class ShowBlogComponent implements OnInit {
   }
 
   deleteBlog(blogId) {
-    this.blogService.deleteBlog(blogId)
-      .then(blogs => {
-      	this.router.navigate([ '/']);
-        alert('Blog deleted successfully');
-      })
+    if (confirm("Are you sure to delete the Blog?") == true) {
+      this.blogService.deleteBlog(blogId)
+        .then(blogs => {
+        	this.router.navigate([ '/']);
+          alert('Blog deleted successfully');
+        })
+    }
   }
 }

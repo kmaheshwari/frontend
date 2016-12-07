@@ -34,10 +34,12 @@ export class BlogComponent implements OnInit {
   }
 
   deleteBlog(blogId) {
-    this.blogService.deleteBlog(blogId)
-      .then(blogs => {
-        alert('Blog deleted successfully');
-        this.getAllBlogs();
-      })
+    if (confirm("Are you sure to delete the Blog?") == true) {
+      this.blogService.deleteBlog(blogId)
+        .then(blogs => {
+          alert('Blog deleted successfully');
+          this.getAllBlogs();
+        })
+    }
   }
 }
