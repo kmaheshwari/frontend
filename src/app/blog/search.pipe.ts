@@ -9,7 +9,7 @@ export class Search implements PipeTransform {
       return value.filter((item: any) => {
         var truthy = 0;
         for(let key in keys)  
-          if (item[keys[key]].toLowerCase().indexOf(searchBy.toLowerCase()) > -1) truthy+=1
+          if (item[keys[key]] && item[keys[key]].toLowerCase().indexOf(searchBy.toLowerCase()) > -1) truthy+=1
         if(truthy>0) return true 
       });
     } 
